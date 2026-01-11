@@ -1,5 +1,5 @@
 # WonderCity
-#### V0.0.1
+#### V0.0.2
 ## Description
 WonderCity is the new undercity utilizing a newer (and possibly more efficient) explorer (batmobile).
 Fully integrated and requires Alfred the butler, Batmobile and Looter.
@@ -26,6 +26,13 @@ Fully integrated and requires Alfred the butler, Batmobile and Looter.
 ## Changelog
 ### V1.0.0
 Initial release
+
+### V0.0.2
+Priortize enticement/beacon over portal.
+kill_monsters only target boss now. 
+Introduced enticement/beacon delay. 
+Target portal warppoint instead of just portal.
+Updated enticement logic
 
 ### V0.0.1
 Beta test

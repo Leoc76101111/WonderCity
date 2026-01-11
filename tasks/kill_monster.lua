@@ -58,9 +58,8 @@ local get_closest_enemies = function ()
 end
 
 task.shouldExecute = function ()
-    local enemy, elite, champion, boss = get_closest_enemies()
-    return (enemy ~= nil or elite ~= nil or
-        champion ~= nil or boss ~= nil) and
+    local _, _, _, boss = get_closest_enemies()
+    return boss ~= nil and
         utils.player_in_undercity
 end
 task.Execute = function ()
@@ -69,15 +68,14 @@ task.Execute = function ()
     BatmobilePlugin.pause(plugin_label)
     BatmobilePlugin.update(plugin_label)
 
-    local enemy, elite, champion, boss = get_closest_enemies()
-    local target = boss or champion or elite or enemy
+    local _, _, _, boss = get_closest_enemies()
+    local target = boss
 
     if target and target:is_boss() and
         target:get_skin_name() ~= 'S11_Andariel_Butcher' and
         tracker.boss_trigger_time == nil
     then
         tracker.boss_trigger_time = get_time_since_inject()
-        console.print(target:get_skin_name())
     end
 
     if tracker.boss_trigger_time ~= nil and

@@ -7,6 +7,7 @@ local tracker = {
     exit_trigger_time = nil,
     boss_trigger_time = nil,
     boss_kill_time = nil,
+    enticement = {},
 }
 
 return tracker

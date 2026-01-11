@@ -14,6 +14,8 @@ local settings = {
     follower_explore = false,
     boss_delay = 0,
     loot_obols = true,
+    beacon_timeout = 15,
+    enticement_timeout = 5,
 }
 
 settings.get_keybind_state = function ()
@@ -42,6 +44,8 @@ settings.update_settings = function ()
     settings.follower_explore = gui.elements.follower_explore:get()
     settings.boss_delay = gui.elements.boss_delay:get()
     settings.loot_obols = gui.elements.loot_obols:get()
+    settings.beacon_timeout = gui.elements.beacon_timeout:get()
+    settings.enticement_timeout = gui.elements.enticement_timeout:get()
 
 end
 

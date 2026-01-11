@@ -40,8 +40,8 @@ local task_files = {
     'exit_undercity',
     -- 'follower',
     'loot_obols',
-    'portal',
     'interact_enticement',
+    'portal',
     'kill_monster',
     'explore_undercity',
     'idle'
