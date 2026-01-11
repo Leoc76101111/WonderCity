@@ -1,6 +1,7 @@
 local plugin_label = 'wonder_city' -- change to your plugin name
 
 local settings = require 'core.settings'
+local utils = require "core.utils"
 
 local status_enum = {
     IDLE = 'idle',
@@ -11,13 +12,24 @@ local task = {
     status = status_enum['IDLE']
 }
 local get_obols = function ()
+    local enticement = utils.get_closest_enticement()
     local items = actors_manager:get_all_items()
 
+    local obols = nil
     for _, item in pairs(items) do
         local item_info = item:get_item_info()
         local display_name = item_info:get_display_name()
         if display_name:match('[Oo]bol') then
-            return item
+            obols = item
+            break
+        end
+    end
+
+    if obols ~= nil and enticement ~= nil then
+        local name = enticement:get_skin_name()
+        local is_switch = name:match('SpiritHearth_Switch')
+        if is_switch or utils.distance(obols, enticement) > 3 then
+            return obols
         end
     end
     return nil

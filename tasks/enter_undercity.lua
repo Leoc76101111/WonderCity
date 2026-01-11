@@ -47,6 +47,7 @@ local enter_portal = function (portal)
     tracker.boss_trigger_time = nil
     tracker.boss_kill_time = nil
     tracker.enticement = {}
+    tracker.done = false
     task.status = status_enum['ENTERING']
 end
 local walk_to_activator = function (activator)

@@ -25,7 +25,10 @@ local get_portal = function ()
         if actor:is_interactable() then
             local actor_name = actor:get_skin_name()
             if actor_name == 'X1_Undercity_PortalSwitch' then
-                return actor
+                local dist = utils.distance(local_player, actor)
+                if dist <= settings.check_distance then
+                    return actor
+                end
             end
         end
     end
@@ -39,7 +42,10 @@ local get_portal_warp_pad = function ()
     for _, actor in pairs(actors) do
         local actor_name = actor:get_skin_name()
         if actor_name == 'X1_Undercity_WarpPad' then
-            return actor
+            local dist = utils.distance(local_player, actor)
+            if dist <= settings.check_distance then
+                return actor
+            end
         end
     end
     return nil

@@ -14,7 +14,7 @@ local task = {
 }
 task.shouldExecute = function ()
     return utils.player_in_undercity() and
-        utils.undercity_done() and
+        tracker.done and
         tracker.boss_kill_time == nil and
         settings.party_enabled and
         settings.party_mode == 0 and

@@ -35,7 +35,7 @@ end
 task.shouldExecute = function ()
     return not utils.is_looting() and utils.player_in_undercity() and
         (tracker.undercity_start_time + settings.reset_timeout < get_time_since_inject() or
-        utils.undercity_done() or BatmobilePlugin.is_done())
+        tracker.done or BatmobilePlugin.is_done())
 
 end
 task.Execute = function ()
