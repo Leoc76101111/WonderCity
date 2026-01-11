@@ -76,6 +76,7 @@ task.Execute = function ()
         tracker.boss_trigger_time == nil
     then
         tracker.boss_trigger_time = get_time_since_inject()
+        console.print(target:get_skin_name())
     end
 
     if tracker.boss_trigger_time ~= nil and

@@ -48,7 +48,7 @@ utils.get_undercity_stash = function ()
     end
     return nil
 end
-utils.get_closest_enticement = function ()
+utils.get_closest_enticement = function (ignore_interacted)
     local local_player = get_local_player()
     if not local_player then return end
     local actors = actors_manager:get_ally_actors()
@@ -62,7 +62,7 @@ utils.get_closest_enticement = function ()
             local actor_coord = tostring(actor_pos:x()) .. ',' .. tostring(actor_pos:y())
             local dist = utils.distance(local_player, actor)
             if dist <= settings.check_distance and
-                tracker.enticement[actor_coord] == nil and
+                (tracker.enticement[actor_coord] == nil or ignore_interacted) and
                 (closest_dist == nil or dist < closest_dist)
             then
                 closest_dist = dist

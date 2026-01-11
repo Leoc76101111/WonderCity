@@ -12,7 +12,7 @@ local task = {
     status = status_enum['IDLE']
 }
 local get_obols = function ()
-    local enticement = utils.get_closest_enticement()
+    local enticement = utils.get_closest_enticement(true)
     local items = actors_manager:get_all_items()
 
     local obols = nil
@@ -28,7 +28,7 @@ local get_obols = function ()
     if obols ~= nil and enticement ~= nil then
         local name = enticement:get_skin_name()
         local is_switch = name:match('SpiritHearth_Switch')
-        if is_switch or utils.distance(obols, enticement) <= 3 then
+        if not is_switch and utils.distance(obols, enticement) <= 3 then
             return nil
         end
     end

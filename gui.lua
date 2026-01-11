@@ -1,5 +1,5 @@
 local plugin_label = 'wonder_city'
-local plugin_version = '0.0.4'
+local plugin_version = '0.0.5'
 console.print("Lua Plugin - WonderCity - Leoric - v" .. plugin_version)
 
 local gui = {}
