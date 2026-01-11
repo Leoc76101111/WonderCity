@@ -1,0 +1,46 @@
+# WonderCity
+#### V0.0.1
+## Description
+WonderCity is the new undercity utilizing a newer (and possibly more efficient) explorer (batmobile).
+Fully integrated and requires Alfred the butler, Batmobile and Looter.
+
+## Settings
+- Enable -- checkbox to enable or disable WonderCity
+- Use Keybind -- checkbox to use keybind to quick pause/resume WonderCity
+    - Toggle keybind - toggle pause/resume
+
+### undercity Settings
+- Reset time -- how long in seconds to give up on current undercity
+- Exit delay -- how long to wait in seconds before initiating exit when all task are done or when reset time is up
+- Boss delay -- how long to wait in seconds before start attacking boss
+- Loot obols -- checkbox to move and pick up obols
+- Reorder tribute -- checkbox to use stash to reorder tributes to the first slot if first slot is not correct tribute
+- Tribute 1/2/3 -- choose which tribute that should be on the first slot
+
+### Party Settings
+- Enable Party mode -- checkbox to enable party specific interaction, only needed if you are planing to play in party
+- Party mode -- choose whether you are the party leader (the one that will complete the undercity) or follower
+- Accept delay -- choose how long to wait for followers to accept start undercity/reset undercity notification before retrying
+- Follower explore? -- choose whether or not to explore undercity as follower 
+
+## Changelog
+### V1.0.0
+Initial release
+
+### V0.0.1
+Beta test
+
+## To do
+Magoogle D4 assistant integration
+
+## Credits
+In no particular order, the following have provided help in various form:
+- Zewx
+- Pinguu
+- NotNeer
+- Letrico
+- SupraDad13
+- Lanvi
+- RadicalDadical55
+- Diobyte
+- TesXter
