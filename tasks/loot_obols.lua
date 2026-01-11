@@ -28,11 +28,11 @@ local get_obols = function ()
     if obols ~= nil and enticement ~= nil then
         local name = enticement:get_skin_name()
         local is_switch = name:match('SpiritHearth_Switch')
-        if is_switch or utils.distance(obols, enticement) > 3 then
-            return obols
+        if is_switch or utils.distance(obols, enticement) <= 3 then
+            return nil
         end
     end
-    return nil
+    return obols
 end
 task.shouldExecute = function ()
     local local_player = get_local_player()

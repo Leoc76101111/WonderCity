@@ -1,5 +1,5 @@
 # WonderCity
-#### V0.0.3
+#### V0.0.4
 ## Description
 WonderCity is the new undercity utilizing a newer (and possibly more efficient) explorer (batmobile).
 Fully integrated and requires Alfred the butler, Batmobile and Looter.
@@ -27,11 +27,14 @@ Fully integrated and requires Alfred the butler, Batmobile and Looter.
 ### V1.0.0
 Initial release
 
+### V0.0.4
+added goto_chest file!
+fix obols not near enticement not picking up
+
 ### V0.0.3
 added distance check (16) to portal and enticement.
 ignore obols that spawned in beacon.
 Added goto_chest task to mark as done
-
 
 ### V0.0.2
 Priortize enticement/beacon over portal.
