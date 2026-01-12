@@ -7,9 +7,6 @@ local tracker = require 'core.tracker'
 local status_enum = {
     IDLE = 'idle',
     EXPLORING = 'exploring',
-    RESETING = 'reseting explorer',
-    INTERACTING = 'interacting with portal',
-    WALKING = 'walking to portal'
 }
 local task = {
     name = 'explore_undercity', -- change to your choice of task name
@@ -23,6 +20,11 @@ end
 task.Execute = function ()
     local local_player = get_local_player()
     if not local_player then return end
+    -- stop exploring after seeing boss
+    if tracker.boss_trigger_time ~= nil then
+        task.status = status_enum['IDLE']
+        return
+    end
     orbwalker.set_clear_toggle(true)
     BatmobilePlugin.resume(plugin_label)
     BatmobilePlugin.update(plugin_label)

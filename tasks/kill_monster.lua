@@ -57,6 +57,13 @@ local get_closest_enemies = function ()
     return closest_enemy, closest_elite, closest_champ, closest_boss
 end
 
+local bosses = {
+    ['S11_Andariel_Boss_KUC'] = 'S11_Andariel_Boss_KUC',
+    ['X1_Undercity_Ghost_Caster_Miniboss'] = 'X1_Undercity_Ghost_Caster_Miniboss',
+    ['X1_Undercity_Lacuni_Boss'] = 'X1_Undercity_Lacuni_Boss',
+    ['X1_Undercity_Snake_Brute_Miniboss'] = 'X1_Undercity_Snake_Brute_Miniboss',
+}
+
 task.shouldExecute = function ()
     local _, _, _, boss = get_closest_enemies()
     return boss ~= nil and
@@ -72,11 +79,10 @@ task.Execute = function ()
     local target = boss
 
     if target and target:is_boss() and
-        target:get_skin_name() ~= 'S11_Andariel_Butcher' and
+        bosses[target:get_skin_name()] ~= nil and
         tracker.boss_trigger_time == nil
     then
         tracker.boss_trigger_time = get_time_since_inject()
-        console.print(target:get_skin_name())
     end
 
     if tracker.boss_trigger_time ~= nil and
