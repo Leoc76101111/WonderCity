@@ -21,6 +21,7 @@ task.shouldExecute = function ()
     local brazier = utils.get_spirit_brazier()
     local portal = utils.get_entrance_portal()
     return utils.player_in_zone('Naha_Kurast') and
+        player_pos:x() ~= 0 and player_pos:y() ~= 0 and
         (portal == nil or utils.distance(player_pos, portal) > 5 ) and
         (brazier == nil or utils.distance(player_pos, path[#path]) > 4)
 end

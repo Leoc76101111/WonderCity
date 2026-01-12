@@ -1,5 +1,5 @@
 local plugin_label = 'wonder_city'
-local plugin_version = '0.0.6'
+local plugin_version = '0.0.7'
 console.print("Lua Plugin - WonderCity - Leoric - v" .. plugin_version)
 
 local gui = {}
@@ -50,8 +50,9 @@ gui.elements = {
     boss_delay = slider_int:new(0, 30, 10, get_hash(plugin_label .. '_' .. 'boss_delay')),
     exit_undercity_delay = slider_int:new(0, 300, 10, get_hash(plugin_label .. '_' .. 'exit_undercity_delay')),
     loot_obols = create_checkbox(true, 'loot_obols'),
-    beacon_timeout = slider_int:new(0, 30, 15, get_hash(plugin_label .. '_' .. 'beacon_timeout')),
-    enticement_timeout = slider_int:new(0, 10, 5, get_hash(plugin_label .. '_' .. 'enticement_timeout')),
+    max_enticement = slider_int:new(0, 9, 5, get_hash(plugin_label .. '_' .. 'max_enticement')),
+    enticement_timeout = slider_int:new(0, 10, 4, get_hash(plugin_label .. '_' .. 'enticement_timeout')),
+    beacon_timeout = slider_int:new(0, 30, 10, get_hash(plugin_label .. '_' .. 'beacon_timeout')),
 
     reorder_tribute = create_checkbox(false, 'reorder_tribute'),
     tribute_1 = combo_box:new(0, get_hash(plugin_label .. '_' .. 'tribute_1')),
@@ -91,8 +92,9 @@ gui.render = function ()
         gui.elements.reset_timeout:render("Reset Time (s)", "Set the time in seconds for resetting all dungeons")
         gui.elements.exit_undercity_delay:render('Exit delay (s)', 'time in seconds to wait before ending undercity')
         gui.elements.boss_delay:render('Boss delay (s)', 'time in seconds to wait before engaging undercity boss')
-        gui.elements.beacon_timeout:render('Beacon delay (s)', 'time in seconds to wait before leaving beacon')
+        gui.elements.max_enticement:render('Max Enticement', 'maximum number of enticement to interact excluding beacon')
         gui.elements.enticement_timeout:render('Enticement delay (s)', 'time in seconds to wait before leaving enticement')
+        gui.elements.beacon_timeout:render('Beacon delay (s)', 'time in seconds to wait before leaving beacon')
         gui.elements.loot_obols:render('Loot Obols', 'Loot Obols')
         -- gui.elements.reorder_tribute:render('Reorder tribute', 'Use stash to reorder specific tribute to use')
         -- if gui.elements.reorder_tribute:get() then

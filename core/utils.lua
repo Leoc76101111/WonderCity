@@ -48,6 +48,15 @@ utils.get_undercity_stash = function ()
     end
     return nil
 end
+utils.get_enticement_count = function ()
+    local count = 0
+    for name, _ in pairs(tracker.enticement) do
+        if name:match('SpiritHearth_Switch') then
+            count = count + 1
+        end
+    end
+    return count
+end
 utils.get_closest_enticement = function (ignore_interacted)
     local local_player = get_local_player()
     if not local_player then return end
@@ -55,14 +64,16 @@ utils.get_closest_enticement = function (ignore_interacted)
     local closest_enticement, closest_dist
     for _, actor in pairs(actors) do
         local name = actor:get_skin_name()
-        if (name:match('SpiritHearth_Switch') or
-            name:match('X1_Undercity_Enticements_SpiritBeaconSwitch'))
+        local found = false
+        if (name:match('X1_Undercity_Enticements_SpiritBeaconSwitch') or
+            (name:match('SpiritHearth_Switch') and
+            utils.get_enticement_count() < settings.max_enticement))
         then
             local actor_pos = actor:get_position()
-            local actor_coord = tostring(actor_pos:x()) .. ',' .. tostring(actor_pos:y())
+            local enticement_str = name .. tostring(actor_pos:x()) .. tostring(actor_pos:y())
             local dist = utils.distance(local_player, actor)
             if dist <= settings.check_distance and
-                (tracker.enticement[actor_coord] == nil or ignore_interacted) and
+                (tracker.enticement[enticement_str] == nil or ignore_interacted) and
                 (closest_dist == nil or dist < closest_dist)
             then
                 closest_dist = dist

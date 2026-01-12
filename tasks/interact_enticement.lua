@@ -34,7 +34,8 @@ task.Execute = function ()
             task.status = status_enum['WALKING']
         else
             BatmobilePlugin.clear_target(plugin_label)
-            local is_switch = enticement:get_skin_name():match('SpiritHearth_Switch')
+            local name = enticement:get_skin_name()
+            local is_switch = name:match('SpiritHearth_Switch')
             local timeout = settings.enticement_timeout
             if not is_switch then
                 timeout = settings.beacon_timeout
@@ -47,9 +48,8 @@ task.Execute = function ()
                 task.status = status_enum['INTERACTING']
             elseif timed_out then
                 local enticement_pos = enticement:get_position()
-                local enticement_coord = tostring(enticement_pos:x()) ..
-                    ',' .. tostring(enticement_pos:y())
-                tracker.enticement[enticement_coord] = true
+                local enticement_str = name .. tostring(enticement_pos:x()) .. tostring(enticement_pos:y())
+                tracker.enticement[enticement_str] = true
                 task.interact_time = nil
                 task.status = status_enum['IDLE']
             elseif task.interact_time == nil then

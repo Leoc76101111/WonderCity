@@ -36,8 +36,8 @@ task.shouldExecute = function ()
     return not utils.is_looting() and utils.player_in_undercity() and
         (tracker.undercity_start_time + settings.reset_timeout < get_time_since_inject() or
         tracker.done or BatmobilePlugin.is_done())
-
 end
+
 task.Execute = function ()
     local local_player = get_local_player()
     if not local_player then return end
