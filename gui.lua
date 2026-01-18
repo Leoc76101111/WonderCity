@@ -32,6 +32,14 @@ local tributes = {
     {sno_id = 2125688, skin_name = 'Tribute of Growth', name = 'Growth', enum = 'GROWTH'},
     {sno_id = 2077993, skin_name = 'Tribute of Heritage', name = 'Heritage', enum = 'HERITAGE'},
 }
+gui.batmobile_priority = {
+    'direction',
+    'distance'
+}
+gui.batmobile_priority_enum = {
+    DIRECTION = 0,
+    DISTANCE = 1
+}
 for _, tribute in ipairs(tributes) do
     gui.tributes[#gui.tributes+1] = tribute.name
     gui.tributes_enum[tribute.enum] = #gui.tributes_enum
@@ -53,6 +61,7 @@ gui.elements = {
     max_enticement = slider_int:new(0, 9, 5, get_hash(plugin_label .. '_' .. 'max_enticement')),
     enticement_timeout = slider_int:new(0, 10, 4, get_hash(plugin_label .. '_' .. 'enticement_timeout')),
     beacon_timeout = slider_int:new(0, 30, 10, get_hash(plugin_label .. '_' .. 'beacon_timeout')),
+    batmobile_priority = combo_box:new(1, get_hash(plugin_label .. '_' .. 'batmobile_priority')),
 
     reorder_tribute = create_checkbox(false, 'reorder_tribute'),
     tribute_1 = combo_box:new(0, get_hash(plugin_label .. '_' .. 'tribute_1')),
@@ -89,6 +98,12 @@ gui.render = function ()
         gui.elements.keybind_toggle:render('Toggle Keybind', 'Toggle the bot for quick enable')
     end
     if gui.elements.undercity_settings_tree:push('Undercity Settings') then
+        gui.elements.batmobile_priority:render('Batmobile priority', gui.batmobile_priority, 'Select whether to priortize direction or distance while exploring')
+        if gui.elements.batmobile_priority:get() == 1 then
+            render_menu_header('[EXPERIMENTAL] Priortizing distance will use more processing power. ' ..
+                'Depending on layout, might result in more backtracking.' ..
+                'In general, it should be better for undercity.....')
+        end
         gui.elements.reset_timeout:render("Reset Time (s)", "Set the time in seconds for resetting all dungeons")
         gui.elements.exit_undercity_delay:render('Exit delay (s)', 'time in seconds to wait before ending undercity')
         gui.elements.boss_delay:render('Boss delay (s)', 'time in seconds to wait before engaging undercity boss')

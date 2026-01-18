@@ -17,6 +17,7 @@ local settings = {
     beacon_timeout = 10,
     enticement_timeout = 4,
     max_enticement = 4,
+    batmobile_priority = 'distance',
 }
 
 settings.get_keybind_state = function ()
@@ -47,7 +48,7 @@ settings.update_settings = function ()
     settings.loot_obols = gui.elements.loot_obols:get()
     settings.beacon_timeout = gui.elements.beacon_timeout:get()
     settings.max_enticement = gui.elements.max_enticement:get()
-
+    settings.batmobile_priority = gui.batmobile_priority[gui.elements.batmobile_priority:get()+1]
 end
 
 return settings

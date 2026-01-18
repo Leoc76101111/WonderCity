@@ -1,5 +1,5 @@
 # WonderCity
-#### V0.0.7
+#### V0.0.8
 ## Description
 WonderCity is the new undercity utilizing a newer (and possibly more efficient) explorer (batmobile).
 Fully integrated and requires Alfred the butler, Batmobile and Looter.
@@ -10,9 +10,15 @@ Fully integrated and requires Alfred the butler, Batmobile and Looter.
     - Toggle keybind - toggle pause/resume
 
 ### undercity Settings
+- Batmobile priority -- set batmobile's exploration priority
+    - DIRECTION -- batmobile will priortize exploring the same direction
+    - DISTANCE -- batmobile will prioritize exploring furthest distance from start. May result in more backtracking
 - Reset time -- how long in seconds to give up on current undercity
 - Exit delay -- how long to wait in seconds before initiating exit when all task are done or when reset time is up
 - Boss delay -- how long to wait in seconds before start attacking boss
+- Max enticement -- maximum number of enticement to activate
+- Enticement timeout -- how long to wait in seconds around enticement
+- Beacon timeout -- how long to wait in seconds around beacon
 - Loot obols -- checkbox to move and pick up obols
 - Reorder tribute -- checkbox to use stash to reorder tributes to the first slot if first slot is not correct tribute
 - Tribute 1/2/3 -- choose which tribute that should be on the first slot
@@ -26,6 +32,12 @@ Fully integrated and requires Alfred the butler, Batmobile and Looter.
 ## Changelog
 ### V1.0.0
 Initial release
+
+### V0.0.8
+Added option to set batmobile priority
+Added spirit brazier as final point in path (fix janky movement after exit)
+Changed logic for enticement timeout so that it doesnt move back if timer expired while far away
+Added goblins to priority for kill_monsters
 
 ### V0.0.7
 increased check distance

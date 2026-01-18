@@ -5,6 +5,10 @@ local settings = require 'core.settings'
 local tracker = require 'core.tracker'
 
 local ignore_list = {}
+local prority_list = {
+    ['X1_Undercity_Chest_Goblin'] = true,
+    ['X1_Undercity_Treasure_Goblin'] = true,
+}
 
 local status_enum = {
     IDLE = 'idle',
@@ -24,10 +28,17 @@ local get_closest_enemies = function ()
     local closest_elite, closest_elite_dist
     local closest_champ, closest_champ_dist
     local closest_boss, closest_boss_dist
+    local closest_priority, closest_priority_dist
     for _, enemy in pairs(enemies) do
         if ignore_list[enemy:get_skin_name()] then goto continue end
         local health = enemy:get_current_health()
         local dist = utils.distance(player_pos, enemy)
+        if prority_list[enemy:get_skin_name()] and
+            (closest_priority_dist == nil or dist < closest_priority_dist)
+        then
+            closest_priority = enemy
+            closest_priority_dist = dist
+        end
         if enemy:is_boss() and
             (closest_boss_dist == nil or dist < closest_boss_dist)
         then
@@ -54,7 +65,7 @@ local get_closest_enemies = function ()
         end
         ::continue::
     end
-    return closest_enemy, closest_elite, closest_champ, closest_boss
+    return closest_enemy, closest_elite, closest_champ, closest_boss, closest_priority
 end
 
 local bosses = {
@@ -65,8 +76,9 @@ local bosses = {
 }
 
 task.shouldExecute = function ()
-    local _, _, _, boss = get_closest_enemies()
-    return boss ~= nil and
+    local _, _, _, boss, priority = get_closest_enemies()
+    local target = boss or priority
+    return target ~= nil and
         utils.player_in_undercity
 end
 task.Execute = function ()
@@ -75,8 +87,8 @@ task.Execute = function ()
     BatmobilePlugin.pause(plugin_label)
     BatmobilePlugin.update(plugin_label)
 
-    local _, _, _, boss = get_closest_enemies()
-    local target = boss
+    local _, _, _, boss, priority = get_closest_enemies()
+    local target = boss or priority
 
     if target and target:is_boss() and
         bosses[target:get_skin_name()] ~= nil and

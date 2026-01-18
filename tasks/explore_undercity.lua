@@ -26,6 +26,7 @@ task.Execute = function ()
         return
     end
     orbwalker.set_clear_toggle(true)
+    BatmobilePlugin.set_priority(plugin_label, settings.batmobile_priority)
     BatmobilePlugin.resume(plugin_label)
     BatmobilePlugin.update(plugin_label)
     BatmobilePlugin.move(plugin_label)
