@@ -53,4 +53,4 @@ on_render_menu(function ()
     gui.render()
 end)
 on_render(render_pulse)
-ArkhamAsylumPlugin = external
+WonderCityPlugin = external
