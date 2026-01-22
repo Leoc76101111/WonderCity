@@ -14,7 +14,7 @@ local task = {
 }
 task.shouldExecute = function ()
     return utils.player_in_undercity() and
-        utils.get_undercity_stash() and
+        utils.get_undercity_stash() ~= nil and
         not tracker.done
 
 end
