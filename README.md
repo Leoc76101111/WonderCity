@@ -4,6 +4,8 @@
 WonderCity is the new undercity utilizing a newer (and possibly more efficient) explorer (batmobile).
 Fully integrated and requires Alfred the butler, Batmobile and Looter.
 
+WARNING: the only build that I have reliably able to complete Mythic tributes is crackling sorc with both tele enchant and teleport enabled on batmobile.
+
 ## Settings
 - Enable -- checkbox to enable or disable WonderCity
 - Use Keybind -- checkbox to use keybind to quick pause/resume WonderCity
@@ -20,7 +22,7 @@ Fully integrated and requires Alfred the butler, Batmobile and Looter.
 - Enticement timeout -- how long to wait in seconds around enticement
 - Beacon timeout -- how long to wait in seconds around beacon
 - Loot obols -- checkbox to move and pick up obols
-- Reorder tribute -- checkbox to use stash to reorder tributes to the first slot if first slot is not correct tribute
+- Reorder tribute -- checkbox to use stash to reorder tributes to the first slot if first slot is not correct tribute (coming soon™)
 - Tribute 1/2/3 -- choose which tribute that should be on the first slot
 
 ### Party Settings
