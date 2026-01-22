@@ -25,7 +25,7 @@ WARNING: the only build that I have reliably able to complete Mythic tributes is
 - Reorder tribute -- checkbox to use stash to reorder tributes to the first slot if first slot is not correct tribute (coming soon™)
 - Tribute 1/2/3 -- choose which tribute that should be on the first slot
 
-### Party Settings
+### Party Settings (coming soon™)
 - Enable Party mode -- checkbox to enable party specific interaction, only needed if you are planing to play in party
 - Party mode -- choose whether you are the party leader (the one that will complete the undercity) or follower
 - Accept delay -- choose how long to wait for followers to accept start undercity/reset undercity notification before retrying
