@@ -1,5 +1,5 @@
 # WonderCity
-#### V0.0.8
+#### V1.0.0
 ## Description
 WonderCity is the new undercity utilizing a newer (and possibly more efficient) explorer (batmobile).
 Fully integrated and requires Alfred the butler, Batmobile and Looter.
