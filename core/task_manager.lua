@@ -37,13 +37,13 @@ local task_files = {
     'teleport_kurast',
     'walk_kurast',
     'enter_undercity',
-    'goto_chest',
-    'exit_undercity',
-    -- 'follower',
     'interact_enticement',
     'loot_obols',
     'portal',
     'kill_monster',
+    'goto_chest',
+    'exit_undercity',
+    -- 'follower',
     'explore_undercity',
     'idle'
 }
