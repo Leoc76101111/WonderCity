@@ -26,7 +26,8 @@ local exit_with_debounce = function (delay)
             task.status = status_enum['WAITING'] .. ' for confirmation'
             return
         end
-        task.debounce_time  = get_time_since_inject()
+        task.debounce_time = get_time_since_inject()
+        task.status = status_enum['EXIT']
         console.print('reset dungeon')
         reset_all_dungeons()
     end
@@ -43,7 +44,7 @@ task.Execute = function ()
     if not local_player then return end
     BatmobilePlugin.pause(plugin_label)
     if BatmobilePlugin.is_done() and not tracker.exit_reset then
-        BatmobilePlugin.reset()
+        BatmobilePlugin.reset(plugin_label)
         tracker.exit_reset = true
         tracker.boss_trigger_time = nil
         return

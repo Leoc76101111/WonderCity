@@ -23,7 +23,7 @@ task.shouldExecute = function ()
     return utils.player_in_zone('Naha_Kurast') and
         player_pos:x() ~= 0 and player_pos:y() ~= 0 and
         (portal == nil or utils.distance(player_pos, portal) > 5 ) and
-        (brazier == nil or utils.distance(player_pos, path[#path]) > 4)
+        (brazier == nil or utils.distance(player_pos, path[#path-1]) > 4)
 end
 task.Execute = function ()
     local local_player = get_local_player()

@@ -14,7 +14,7 @@ local task = {
 }
 task.shouldExecute = function ()
     return utils.player_in_undercity() and
-        utils.get_undercity_stash() ~= nil and
+        utils.get_undercity_chest() ~= nil and
         not tracker.done
 
 end
@@ -23,7 +23,7 @@ task.Execute = function ()
     if not local_player then return end
     BatmobilePlugin.pause(plugin_label)
     BatmobilePlugin.update(plugin_label)
-    local chest = utils.get_undercity_stash()
+    local chest = utils.get_undercity_chest()
     if chest ~= nil then
         if utils.distance(local_player, chest) > 3 then
             BatmobilePlugin.set_target(plugin_label, chest)

@@ -1,5 +1,5 @@
 local plugin_label = 'wonder_city'
-local plugin_version = '1.0.2'
+local plugin_version = '1.0.3'
 console.print("Lua Plugin - WonderCity - Leoric - v" .. plugin_version)
 
 local gui = {}
@@ -16,7 +16,7 @@ gui.party_mode = { 'Leader', 'Follower'}
 
 gui.tributes = {}
 gui.tributes_enum = {}
-local tributes = {
+gui.tributes_data = {
     {sno_id = 2125049, skin_name = 'Tribute of Ascendance', name = 'Ascendance', enum = 'ASCENDANCE'},
     {sno_id = 2485152, skin_name = 'Major Tribute of Andariel', name = 'Major Andariel', enum = 'MAJOR_ANDARIEL'},
     {sno_id = 2485144, skin_name = 'Tribute of Andariel', name = 'Andariel', enum = 'ANDARIEL'},
@@ -40,9 +40,9 @@ gui.batmobile_priority_enum = {
     DIRECTION = 0,
     DISTANCE = 1
 }
-for _, tribute in ipairs(tributes) do
+for _, tribute in ipairs(gui.tributes_data) do
     gui.tributes[#gui.tributes+1] = tribute.name
-    gui.tributes_enum[tribute.enum] = #gui.tributes_enum
+    gui.tributes_enum[#gui.tributes_enum+1] = tribute.sno_id
 end
 
 
@@ -111,13 +111,13 @@ gui.render = function ()
         gui.elements.enticement_timeout:render('Enticement delay (s)', 'time in seconds to wait before leaving enticement')
         gui.elements.beacon_timeout:render('Beacon delay (s)', 'time in seconds to wait before leaving beacon')
         gui.elements.loot_obols:render('Loot Obols', 'Loot Obols')
-        -- gui.elements.reorder_tribute:render('Reorder tribute', 'Use stash to reorder specific tribute to use')
-        -- if gui.elements.reorder_tribute:get() then
-        --     render_menu_header('Use stash to reorder dungeon keys inventory if the first slot is not any of the following tributes.')
-        --     gui.elements.tribute_1:render('Tribute 1', gui.tributes, 'Select which tribute to be priority 1')
-        --     gui.elements.tribute_2:render('Tribute 2', gui.tributes, 'Select which tribute to be priority 2')
-        --     gui.elements.tribute_3:render('Tribute 3', gui.tributes, 'Select which tribute to be priority 3')
-        -- end
+        gui.elements.reorder_tribute:render('Reorder tribute', 'Use stash to reorder specific tribute to use')
+        if gui.elements.reorder_tribute:get() then
+            render_menu_header('Use stash to reorder dungeon keys inventory if the first slot is not any of the following tributes.')
+            gui.elements.tribute_1:render('Tribute 1', gui.tributes, 'Select which tribute to be priority 1')
+            gui.elements.tribute_2:render('Tribute 2', gui.tributes, 'Select which tribute to be priority 2')
+            gui.elements.tribute_3:render('Tribute 3', gui.tributes, 'Select which tribute to be priority 3')
+        end
         gui.elements.undercity_settings_tree:pop()
     end
     if gui.elements.party_settings_tree:push('Party Settings') then

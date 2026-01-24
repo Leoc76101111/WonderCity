@@ -38,7 +38,7 @@ utils.get_entrance_portal = function ()
     end
     return nil
 end
-utils.get_undercity_stash = function ()
+utils.get_undercity_chest = function ()
     local actors = actors_manager:get_ally_actors()
     for _, actor in pairs(actors) do
         local actor_name = actor:get_skin_name()

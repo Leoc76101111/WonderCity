@@ -32,7 +32,7 @@ end
 
 local task_files = {
     -- 'd4assistant',
-    -- 'sort_tribute',
+    'sort_tribute',
     'alfred',
     'teleport_kurast',
     'walk_kurast',

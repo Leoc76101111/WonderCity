@@ -1,5 +1,5 @@
 # WonderCity
-#### V1.0.2
+#### V1.0.3
 ## Description
 WonderCity is the new undercity utilizing a newer (and possibly more efficient) explorer (batmobile).
 Fully integrated and requires Alfred the butler, Batmobile and Looter.
@@ -22,7 +22,7 @@ WARNING: the only build that I have reliably able to complete Mythic tributes is
 - Enticement timeout -- how long to wait in seconds around enticement
 - Beacon timeout -- how long to wait in seconds around beacon
 - Loot obols -- checkbox to move and pick up obols
-- Reorder tribute -- checkbox to use stash to reorder tributes to the first slot if first slot is not correct tribute (coming soon™)
+- Reorder tribute -- checkbox to use stash to reorder tributes to the first slot if first slot is not correct tribute
 - Tribute 1/2/3 -- choose which tribute that should be on the first slot
 
 ### Party Settings (coming soon™)
@@ -32,6 +32,9 @@ WARNING: the only build that I have reliably able to complete Mythic tributes is
 - Follower explore? -- choose whether or not to explore undercity as follower 
 
 ## Changelog
+### V1.0.3
+Implemented Reorder tribute
+
 ### V1.0.2
 Fix bug where exit triggered too early due to exploration is done but boss is not dead
 

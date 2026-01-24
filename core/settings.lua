@@ -18,6 +18,10 @@ local settings = {
     enticement_timeout = 4,
     max_enticement = 4,
     batmobile_priority = 'distance',
+    reorder_tribute = false,
+    tribute_1 = 2125049,
+    tribute_2 = 2125049,
+    tribute_3 = 2125049,
 }
 
 settings.get_keybind_state = function ()
@@ -49,6 +53,10 @@ settings.update_settings = function ()
     settings.beacon_timeout = gui.elements.beacon_timeout:get()
     settings.max_enticement = gui.elements.max_enticement:get()
     settings.batmobile_priority = gui.batmobile_priority[gui.elements.batmobile_priority:get()+1]
+    settings.reorder_tribute = gui.elements.reorder_tribute:get()
+    settings.tribute_1 = gui.tributes_enum[gui.elements.tribute_1:get()+1]
+    settings.tribute_2 = gui.tributes_enum[gui.elements.tribute_2:get()+1]
+    settings.tribute_3 = gui.tributes_enum[gui.elements.tribute_3:get()+1]
 end
 
 return settings
