@@ -35,13 +35,19 @@ end
 task.shouldExecute = function ()
     return not utils.is_looting() and utils.player_in_undercity() and
         (tracker.undercity_start_time + settings.reset_timeout < get_time_since_inject() or
-        tracker.done or BatmobilePlugin.is_done() or utils.get_undercity_stash() ~= nil)
+        tracker.done or BatmobilePlugin.is_done())
 end
 
 task.Execute = function ()
     local local_player = get_local_player()
     if not local_player then return end
     BatmobilePlugin.pause(plugin_label)
+    if BatmobilePlugin.is_done() and not tracker.exit_reset then
+        BatmobilePlugin.reset()
+        tracker.exit_reset = true
+        tracker.boss_trigger_time = nil
+        return
+    end
     if tracker.exit_trigger_time == nil then
         tracker.exit_trigger_time = get_time_since_inject()
     end

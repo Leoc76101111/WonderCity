@@ -44,6 +44,7 @@ local enter_portal = function (portal)
     BatmobilePlugin.reset(plugin_label)
     tracker.undercity_start_time = get_time_since_inject()
     tracker.exit_trigger_time = nil
+    tracker.exit_reset = false
     tracker.boss_trigger_time = nil
     tracker.boss_kill_time = nil
     tracker.enticement = {}

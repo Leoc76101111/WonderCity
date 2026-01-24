@@ -5,6 +5,7 @@ local tracker = {
     name = plugin_label,
     undercity_start_time = get_time_since_inject(),
     exit_trigger_time = nil,
+    exit_reset = false,
     boss_trigger_time = nil,
     boss_kill_time = nil,
     enticement = {},
